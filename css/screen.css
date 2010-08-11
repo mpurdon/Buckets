@@ -1,0 +1,229 @@
+/**
+ * default
+ */
+html, body, p, ul, ol, li, h1, h2, h3, h4, h5, h6, img, dl, dt, dd, fieldset, form {
+	font-weight: normal;
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+}
+
+html {
+	font-family: 'trebuchet ms', 'Courier New', 'Courier', sans-serif;
+	color: #676767;
+}
+
+body {
+    background: url("../img/bg_header_repeat.jpg") repeat-x;	
+}
+
+.wrapper {
+	width: 900px;
+	margin: auto;
+}
+
+/**
+ * logo
+ */
+.header {
+	color: #36c;
+	padding-left: 150px;
+	height: 138px;
+	background: url("../img/spilled_bucket.gif") top left no-repeat;
+}
+
+.header a {
+    color: #36c;
+    text-decoration: none;
+}
+
+.header a:hover {
+    color: #36c;
+}
+
+/**
+ * Navigation
+ */
+div.menu {
+	float:right;
+}
+
+div.menu a {
+    text-decoration: none;
+    color: #dd0;
+}
+
+div.menu a:hover {
+    color: #dd0;
+}
+
+/**
+ * content
+ */
+.content {
+	width: 900px;
+}
+
+.content a {
+	text-decoration: none;
+	color: #007fba;
+}
+
+.content a:hover {
+	color: #b6b6b6;
+}
+
+.content ol {
+	margin: 1.5em;
+}
+
+.infoBubble {
+	padding: 10px;
+	border-bottom: 3px double #ccc;
+}
+
+.sections {
+	width: 963px;
+}
+
+.section {
+	float:left;
+    height: 406px;
+    margin-left: 30px;
+    padding: 10px 15px;
+    width: 271px;
+}
+
+.section:first-child {
+    margin-left:0;
+}
+
+.section h3 {
+	color: #007fba;
+	font-size: 1.6em;
+	margin-bottom: 10px;
+}
+
+/**
+ * footer
+ */
+.footer {
+	font-family: 'Monaco', 'Trebuchet MS';
+	padding: 30px 0px 10px 0px;
+	font-size: .7em;
+	color: #888;
+	text-align: center;
+}
+
+/**
+ * forms
+ */
+ 
+form {
+	margin-top: 10px;
+	overflow: hidden;
+}
+
+fieldset {
+    border: 2px solid #eaeaea;
+    padding: 1em;
+}
+
+legend {
+    color: #007fba;	
+}
+
+label {
+	padding: 4px;
+	width: 4em;
+	float: left;
+	clear: left;
+}
+
+label + input {
+	padding: 4px;
+	float: left;
+}
+
+input[type=submit] {
+    float: left;
+    clear: left;
+    margin-top: 10px;
+}
+
+label + textarea {
+    float: left;
+}
+
+/**
+ * LOGIN
+ */
+a.facebook, a.facebook span {
+    width: 166px;
+    height: 22px;
+}
+
+a.facebook {
+    display: block;
+    font-size: .6em;
+    position: relative;
+}
+
+a.facebook span {
+    position: absolute;
+    top: 2px;
+    left: 0px;
+    background: url("../img/global/btn_facebook_connect.png") no-repeat;
+}
+
+#loginBox a.facebook {
+    margin: auto;
+    margin-top: 8px;
+    margin-bottom: 12px;
+}
+
+#loginBox .or {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.header ul li a.facebook:hover span {
+/*    background-position: -89px 0px;*/
+}
+
+#loginBoxContainer, #loginBoxContainerShow {
+    display: none;
+    z-index: 100;
+    position: absolute;
+    top: -60px;
+    right: 224px;
+    width: 335px;
+    background: url("../img/global/bg_login_middle.png") repeat-y 0 0px;
+    margin-top: 50px;
+}
+
+#loginBoxContainerShow {
+    display: block;
+}
+
+#loginBox {
+    background: url("../img/global/bg_login_top.png") no-repeat 0px 0px;
+    margin-top: -79px;
+    min-height: 20px;
+    height:auto !important;
+    height: 20px;
+    padding: 65px 40px 0px 15px;
+}
+
+#loginBoxBottom {
+    background: url("../img/global/bg_login_bottom.png") no-repeat;
+    margin-bottom: -37px;
+    height: 37px;
+}
+
+.roundedCorners {
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;    
+}
+
+

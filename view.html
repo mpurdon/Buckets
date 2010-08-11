@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ user }}'s Bucket List{% endblock %}
+
+{% block content %}
+
+<ul>
+    {% for item in list_items %}
+    <li>You want to {{ item.title|escape }}</li>
+    {% endfor %}
+</ul>
+
+{% include "add.html" %}
+{% endblock %}

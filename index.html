@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="infoBubble">
+    <p>Hello {{ user }}!</p>
+    <p><a href="/view">Check out your list...</a></p>
+</div>
+
+<div class="sections">
+    <div class="section">
+        <h3>Top 10 People to Meet</h3>
+        <ol>
+        {% for item in list_items %}
+        <li>{{ item.author.nickname|escape }} wants to {{ item.title|escape }}</li>
+        {% endfor %}                
+        </ol>
+    </div>
+    <div class="section">
+        <h3>Top 10 Places to Go</h3>
+        <ol>
+        {% for item in list_items %}
+        <li>{{ item.author.nickname|escape }} wants to {{ item.title|escape }}</li>
+        {% endfor %}                
+        </ol>
+    </div>
+    <div class="section">
+        <h3>Top 10 Things to Do</h3>
+        <ol>
+        {% for item in list_items %}
+        <li>{{ item.author.nickname|escape }} wants to {{ item.title|escape }}</li>
+        {% endfor %}                
+        </ol>
+    </div>
+</div>
+                
+<div style="font-size: 0.8em;">                
+	<ul>
+	    <li>Hits:{{ memcache_stats.hits }}</li>
+	    <li>Misses:{{ memcache_stats.misses }}</li>
+	    <li>Items:{{ memcache_stats.items }}</li>
+	    <li>Size:{{ memcache_stats.bytes }} bytes</li>
+	</ul>
+	
+</div>
+{% endblock %}
