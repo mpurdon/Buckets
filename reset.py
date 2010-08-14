@@ -32,8 +32,8 @@ class ResetHandler(webapp.RequestHandler):
             item.delete()
 
         self.add_people(user)
-        self.add_places(user)
-        self.add_things(user)
+        #self.add_places(user)
+        #self.add_things(user)
 
         self.response.out.write('<hr/>Flushing memcached<hr/>')
         
@@ -53,6 +53,7 @@ class ResetHandler(webapp.RequestHandler):
             'the Queen of England',
             'the Pope',
             'President Obama',
+            'President Obama',
             'Richard Branson',
             'Bill Gates',
             'Warren Buffet',
@@ -71,18 +72,23 @@ class ResetHandler(webapp.RequestHandler):
 
         for name in people:
             # Add Person Entity
-            person = Person()
-            person.title = name
-            person.put()
+            query = Person.gql('WHERE title=:name', name=name)
+            person = query.get()
+
+            if person:
+                self.response.out.write('Found %s in database<br/>' % person)
             
-            # Add Reference to the Person from User
-            user_list_item = UserListItem()
-            user_list_item.user = user
-            user_list_item.list_item = person
+            if not person:
+                person = Person()
+                person.title = name
+                person.put()
+                self.response.out.write('Added %s<br/>' % person)                
             
             # Update the list of items the user has
-            user_list_items.list_items.append(person.key())
-            
+            if person.key() not in user_list_items.list_items:
+                user_list_items.list_items.append(person.key())
+                self.response.out.write('Added %s to %s<br/>' % (person.key().to_path(), user_list_items.list_items))            
+
             # Add the specifics of the user list item linkage
             user_list_item = UserListItem()
             user_list_item.user = user
@@ -94,7 +100,7 @@ class ResetHandler(webapp.RequestHandler):
             
             ListItemCounter.increment(user_list_item)
             
-            self.response.out.write('Added %s<br/>' % person)
+            self.response.out.write('------------------------------------<br/>')
 
         # Save the linkages from list items to the current user
         user_list_items.put();
